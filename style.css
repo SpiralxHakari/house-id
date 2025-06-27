@@ -64,3 +64,9 @@ video {
   border: 2px solid #00ff00;
   box-shadow: 0 0 10px #00ff00;
 }
+
+.terminal-line {
+  margin: 10px 0;
+  text-align: center; /* <-- This ensures each line centers text */
+  white-space: pre-wrap; /* Preserves spacing while wrapping cleanly */
+}
