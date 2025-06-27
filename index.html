@@ -76,17 +76,15 @@
       oscillator.start();
       oscillator.stop(context.currentTime + 0.1);
     }
-  </script>
-<script>
-  const video = document.getElementById("rickroll");
-  const button = document.getElementById("proceed-btn");
+    const video = document.getElementById("rickroll");
+    const button = document.getElementById("proceed-btn");
 
-  button.addEventListener("click", () => {
-    button.style.display = "none";
-    video.style.display = "block";
-    video.play();
-  });
-</script>
+      button.addEventListener("click", () => {
+        button.style.display = "none";
+        video.style.display = "block";
+        video.play();
+        });
+  </script>
   
 </body>
 </html>
