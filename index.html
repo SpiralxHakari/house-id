@@ -2,68 +2,75 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>House Varrick Access Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>House Varrick Identification Terminal</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <img src="Starhaven Crest.png" alt="House Varrick Crest" class="crest" />
-    <div class="terminal">
-      <p>Initializing Secure Channel...</p>
-      <p>CLEARANCE LEVEL: <span class="clearance">Crimson-Theta-3</span></p>
-      <p>Verifying Credentials</p>
-      <div class="progress-bar" id="progress-bar">
-        <span class="segment"></span><span class="segment"></span><span class="segment"></span>
-        <span class="segment"></span><span class="segment"></span><span class="segment"></span>
-        <span class="segment"></span><span class="segment"></span><span class="segment"></span>
-        <span class="segment"></span>
-      </div>
-      <div id="warning" class="hidden">
-        <p class="alert">UNAUTHORIZED SCAN DETECTED</p>
-        <p class="alert-sub">LOCATION DATA LOGGED</p>
-        <button id="abort-btn">ABORT</button>
-      </div>
-      <div id="video-container" class="hidden">
-        <video controls autoplay>
-          <source src="rickroll.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </div>
+
+  <img src="crest.png" alt="House Varrick Crest" class="crest" />
+
+  <p>Initializing Secure Channel...</p>
+  <p><strong>CLEARANCE LEVEL:</strong> Crimson-Theta-3</p>
+  <p>Verifying Credentials</p>
+  <p class="alert">UNAUTHORIZED SCAN DETECTED</p>
+  <p class="alert">LOCATION DATA LOGGED</p>
+
+  <div class="progress-bar">
+    <span id="progress" class="progress-fill">[▓▓▒▒▒▒▒▒▒▒▒]</span>
   </div>
 
-  <audio id="beep" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
-  <script>
-    const segments = document.querySelectorAll('.segment');
-    const warning = document.getElementById('warning');
-    const videoContainer = document.getElementById('video-container');
-    const beep = document.getElementById('beep');
+  <button id="abort-btn">ABORT</button>
 
-    let index = 0;
-    const interval = setInterval(() => {
-      if (index < segments.length) {
-        segments[index].classList.add('filled');
-        beep.play();
-        index++;
-      } else {
-        clearInterval(interval);
-        setTimeout(() => {
-          warning.classList.remove('hidden');
-          beep.play();
-          setTimeout(() => {
-            videoContainer.classList.remove('hidden');
-          }, 2000);
-        }, 1000);
+  <div class="video-container">
+    <video id="rickroll" width="480" controls autoplay>
+      <source src="rickroll.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <script>
+    // Simulated DOS-style progress bar
+    const progress = document.getElementById("progress");
+    const frames = [
+      "[▒▒▒▒▒▒▒▒▒▒]",
+      "[▓▒▒▒▒▒▒▒▒▒]",
+      "[▓▓▒▒▒▒▒▒▒▒]",
+      "[▓▓▓▒▒▒▒▒▒▒]",
+      "[▓▓▓▓▒▒▒▒▒▒]",
+      "[▓▓▓▓▓▒▒▒▒▒]",
+      "[▓▓▓▓▓▓▒▒▒▒]",
+      "[▓▓▓▓▓▓▓▒▒▒]",
+      "[▓▓▓▓▓▓▓▓▒▒]",
+      "[▓▓▓▓▓▓▓▓▓▒]",
+      "[▓▓▓▓▓▓▓▓▓▓]"
+    ];
+    let i = 0;
+    setInterval(() => {
+      if (i < frames.length) {
+        progress.textContent = frames[i];
+        i++;
+        beep();
       }
     }, 300);
 
-    document.addEventListener('click', () => beep.play());
-
-    const abortBtn = document.getElementById('abort-btn');
-    abortBtn.addEventListener('click', () => {
+    // Fake security alert on ABORT press
+    document.getElementById("abort-btn").addEventListener("click", () => {
       alert("Personal identification data sent. Local authorities have been notified.");
+      beep();
     });
+
+    // Terminal-style beep
+    function beep() {
+      const context = new (window.AudioContext || window.webkitAudioContext)();
+      const oscillator = context.createOscillator();
+      oscillator.type = "square";
+      oscillator.frequency.setValueAtTime(440, context.currentTime);
+      oscillator.connect(context.destination);
+      oscillator.start();
+      oscillator.stop(context.currentTime + 0.1);
+    }
   </script>
+
 </body>
 </html>
