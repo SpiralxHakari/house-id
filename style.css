@@ -12,11 +12,16 @@ body {
   max-height: 200px;
 }
 
+.alert {
+  color: red;
+  font-weight: bold;
+}
+
 .progress-bar {
   width: 100%;
   background-color: #222;
   border: 1px solid #00ff00;
-  padding: 2px;
+  padding: 4px;
   margin: 20px 0;
   font-family: monospace;
   font-size: 1em;
@@ -37,9 +42,14 @@ body {
   padding: 5px 10px;
   font-family: monospace;
   cursor: pointer;
+  margin-bottom: 20px;
 }
 
 #abort-btn:hover {
   background-color: red;
   color: black;
+}
+
+.video-container {
+  text-align: center;
 }
