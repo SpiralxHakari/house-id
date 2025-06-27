@@ -7,33 +7,34 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="container">
+    <img src="crest.png" alt="House Varrick Crest" class="crest" />
 
-  <img src="crest.png" alt="House Varrick Crest" class="crest" />
+    <p class="terminal-line">Initializing Secure Channel...</p>
+    <p class="terminal-line"><strong>CLEARANCE LEVEL:</strong> Crimson-Theta-3</p>
+    <p class="terminal-line">Verifying Credentials</p>
+    <p class="terminal-line alert">UNAUTHORIZED SCAN DETECTED</p>
+    <p class="terminal-line alert">LOCATION DATA LOGGED</p>
 
-  <p>Initializing Secure Channel...</p>
-  <p><strong>CLEARANCE LEVEL:</strong> Crimson-Theta-3</p>
-  <p>Verifying Credentials</p>
-  <p class="alert">UNAUTHORIZED SCAN DETECTED</p>
-  <p class="alert">LOCATION DATA LOGGED</p>
+    <div class="progress-bar">
+      <span id="progress" class="progress-fill">[▓▓▒▒▒▒▒▒▒▒▒]</span>
+    </div>
 
-  <div class="progress-bar">
-    <span id="progress" class="progress-fill">[▓▓▒▒▒▒▒▒▒▒▒]</span>
+    <button id="abort-btn">ABORT</button>
+
+    <div id="video-section" style="margin-top: 30px;">
+      <button id="proceed-btn" style="padding: 12px 24px; font-size: 18px; font-family: monospace; background-color: black; color: red; border: 2px solid red; cursor: pointer;">
+        Proceed with Verification
+      </button>
+
+      <br><br>
+
+      <video id="rickroll" width="560" height="315" controls style="display: none;">
+        <source src="rickroll.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
   </div>
-
-  <button id="abort-btn">ABORT</button>
-
-  <div id="video-section" style="text-align: center; margin-top: 30px;">
-  <button id="proceed-btn" style="padding: 12px 24px; font-size: 18px; font-family: monospace; background-color: black; color: red; border: 2px solid red; cursor: pointer;">
-    Proceed with Verification
-  </button>
-
-  <br><br>
-
-  <video id="rickroll" width="560" height="315" controls style="display: none;">
-    <source src="rickroll.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-</div>
 
   <script>
     // Simulated DOS-style progress bar
