@@ -66,6 +66,8 @@ video {
 }
 
 .terminal-line {
+  font-family: "Courier New", monospace;
+  color: #00ff00;
   margin: 10px 0;
   text-align: center; /* <-- This ensures each line centers text */
   white-space: pre-wrap; /* Preserves spacing while wrapping cleanly */
