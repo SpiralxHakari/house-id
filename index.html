@@ -10,7 +10,6 @@
   <div class="container">
     <img src="crest.png" alt="House Varrick Crest" class="crest" />
 
-    <div id="terminal-output" class="terminal-line">
       <p class="terminal-line">Initializing Secure Channel...</p>
       <p class="terminal-line"><strong>CLEARANCE LEVEL:</strong> Crimson-Theta-3</p>
       <p class="terminal-line">Verifying Credentials</p>
@@ -27,7 +26,6 @@
           <button id="proceed-btn" style="padding: 12px 24px; font-size: 18px; font-family: monospace; background-color: black; color: red; border: 2px solid red; cursor: pointer;">
             Proceed with Verification
           </button>
-      </div>
 
       <br><br>
 
@@ -87,25 +85,6 @@
         video.style.display = "block";
         video.play();
         });
-
-    function typeText(elementId, text, delay = 50, callback = null) {
-  const el = document.getElementById(elementId);
-  let i = 0;
-  function type() {
-    if (i < text.length) {
-      el.innerHTML += text.charAt(i);
-      i++;
-      setTimeout(type, delay);
-    } else if (callback) {
-      callback();
-    }
-  }
-  type();
-}
-    const welcomeMessage = "Initializing secure connection...\nVerifying identity...\nACCESS GRANTED.";
-typeText("terminal-output", welcomeMessage, 40, () => {
-  // Do something after typing completes, like show a button or redirect
-});
   </script>
   
 </body>
